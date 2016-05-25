@@ -1,0 +1,52 @@
+{
+  "name": "loser",
+  "version": "0.0.0",
+  "description": ":fu: Universal javascript test runner",
+  "main": "looser-core/index.js",
+  "author": "Douglas Duteil <douglasduteil@gmail.com> (douglasduteil.github.io)",
+  "license": "WTFPL",
+  "scripts": {
+    "build": "npm run build:loser-cli",
+    "build:loser-cli": "babel packages/loser-cli/src -d packages/loser-cli/lib",
+    "lint": "eslint packages",
+    "test": "npm run lint && npm run test:all",
+    "test:all": "babel-node packages/*/test/*.js | faucet",
+    "watch:test:all": "chokidar 'packages/*/test/*.js' -c 'npm run test:all'"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "yargs": "^4.7.1"
+  },
+  "bin": {
+    "loser": "./loser-cli/bin/loser.js"
+  },
+  "keywords": [
+    "browser",
+    "execution",
+    "javascript",
+    "js",
+    "loser",
+    "mocha",
+    "qunit",
+    "remote",
+    "runner",
+    "saucelabs",
+    "test",
+    "testing",
+    "testing",
+    "zuul"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^2.10.2",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.1.0",
+    "eslint-plugin-standard": "^1.3.2",
+    "faucet": "0.0.1",
+    "fixture-cases-extract": "^1.0.0",
+    "tape": "^4.5.1"
+  }
+}
